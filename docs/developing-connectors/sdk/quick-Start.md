@@ -129,7 +129,7 @@ When the connection you make is successful, the debugger will immediately displa
 
 Find out more about configuring a connection in our SDK and what connection types we support. [Learn more](/developing-connectors/sdk/authentication.md).
 
-.md### Testing actions and triggers
+### Testing actions and triggers
 After establishing a successful connection, you'll be able to test any actions and triggers you have defined using the debugger console.
 
 ![Testing actions or triggers](~@img/sdk/testing-actions-triggers.png)
@@ -151,45 +151,67 @@ Besides the input and outputs of the action or trigger, you'll also be able to s
 In the event of unsuccessful tests, the debugger console would feature red accents and also feature an additional tab called `error`. In this tab, you would be able to see the error message raised due to the logic error as well as the exact line of code that causes our framework to raise this error. In the event that the line of code was raised in a block other than the `execute:` block, we also provide a trace of the lines of code called that lead up to the final error.
 
 ## Sharing your connector
-After you've built and released a version of your connector, you'll be able to share this connector with others using the share tab. When you create a new connector, you'll first need to enable sharing via the `Share` tab. You'll need to have at least one version of the connector released to enable sharing.
+After you've built and released a version of your connector, you'll be able to share this connector with others using the share tab. When you create a new connector, you'll first need to set up sharing via the `Share` tab. You'll need to have at least one released version to set up sharing.
 
 ![Empty state share tab](~@img/sdk/empty_state_share_tab.png)
 *Empty state*
 
-Clicking on the `Enable sharing` button will bring up a modal which guides you through the set up. You'll need to select a version to share out of all previously released versions. Your shared version is the version of your connector which others receive when you let them install your connector. This version can be different from the one which is released into your own personal workspace and was done intentionally so you can test and verify that new versions are stable before sharing them with others.
-
-You'll provide a description of your connector which can be seen by anyone looking to install your connector. Provide useful information about the capabilities of your connector so your end users know what to expect.
+### Setting up sharing for your connector
+Clicking on the `Enable sharing` button will bring up a modal which guides you through the set up. You'll need to select a version to *share* out of all your previously *released* versions.
 
 ![Share modal](~@img/sdk/share_modal.png)
 *Select a version to share and provide a Description*
+
+#### Released versions vs Shared versions
+| Shared Version  | Released Version |
+|----------------	|----------------	|
+| Your connector's *shared* version is the version which others receive when they install your connector for the first time. When you switch your shared version, all those who have installed your connector receive an option to update to your latest shared version. 	| Your connector's *released* version is what all recipes in your workspace use. When you release a new version of your connector, all recipes using this connector will use this version immediately. 	|
+
+You'll also need to provide a description of your connector which can be seen by anyone looking to install your connector. Provide useful information about the capabilities of your connector so your end users know what to expect.
 
 ::: tip
 Your connector's description is the highlight of your install page. When you share your connector with others, make sure you have a description that showcases what your connector can do as well as other important information those using it might need.
 :::
 
+### Ways to share
 Thee are two ways to share connectors in Workato after enabling sharing. You may share your connector directly via a private link or by listing your connector on our community! Listing on the community is a quick and easy way to share your connector with all Workato users. They will be able to find and install your connector for use in their own recipes.
 
 ![Two modes of sharing](~@img/sdk/share_privately_or_publicly.png)
 *You may share your connector via share link or on the community*
 
-By sharing on the community, you'll also get your dedicated connector landing page which anyone can view. Users will be able to see more details about the current shared version of your connector, your connector's description as well as some details about you. Having a well thought out description and image for your account helps users build trust in your connector when they find it on the community.
+#### Sharing your connector privately
+Sharing your connector privately can be easily done via a private share link. You can find this in the `share` tab of your SDK console and pass anyone your connector's specific share link. When users open this link, they'll be brought to a landing page which contains up to date information about the latest shared version of your connector. They'll be able to view and then install the shared version of your custom connector.
 
-![Two modes of sharing](~@img/sdk/share_privately_or_publicly.png)
+![Share privately using link](~@img/sdk/share_privately.png)
+*Click on the copy share link to receive a copy of your connector's personal share link*
+
+#### Sharing your connector publicly via the community
+After setting up sharing for your connector, you'll be able to share your connector publicly with the Workato community. You'll need to first use this connector in at least one recipe and have had run a successful job. This is done to ensure that your connector is working.
+
+![Share publicly through the community](~@img/sdk/share_publicly.png)
 *You may share your connector via share link or on the community*
 
-### Sharing your connector privately
-Sharing your connector privately can be easily done via a private share link. You can find this in the `share` tab of your SDK console using
+::: tip
+Sharing your connector on the community allows any Workato user to find, install and use your connector. We encourage you to share your connectors to help out other fellow citizen integrators in their own recipes. As many face the same issues with integrations that led you to build this connector, sharing your connector on the community helps others to achieve their integration goals faster!
+:::
 
-### Sharing newly released versions with others who have previously cloned your connector
-The relationship between the original parent connector and its child cloned connector is still maintained. When a new version is released in the parent connector, each child connector receives a notification that an update is available.
+When you list on the community, you'll be asked for the app which this connector connects to. You should select the app that best describes your connector. Simply search for the name of the application you are connecting to and select from a list of apps that Workato has approved.
 
-![Install page](~@img/sdk/update-notification.png)
-*Notification shows up when there is an update for your child connector*
+![Select the app that fits best](~@img/sdk/select_app.png)
+*Select the app that your connector is built for*
 
-When a child custom connector is updated, a new latest version is created. This version is identical to the latest released version of the parent connector. At this stage, you'll be able to view the source code, the new actions or triggers and decide whether you'd like to release this new version to your recipes. In cases where you felt this update was unnecessary, you'd be able to revert to a previous version in the same way you would restore an old version. These child custom connectors will also receive any notes attached to the version you released. This presents a great way to pass important information about what has changed to help users decide whether they want to update.
+In cases where you cannot find the app that you connect, type in the name of the application directly into the field. Give us a day to approve before your listing can go live on the community. We do this to ensure that all listing on the community are valid and so that users can easily find what they are looking for.
 
-![Install page](~@img/sdk/share-connector-updated-version-notes.png)
-*Notification shows up when there is an update for your child connector*
+![Unknown apps require approval](~@img/sdk/unknown_app.png)
+*Apps that we don't whitelist require a quick approval*
+
+You'll also need to provide some basic categories of what your connector does. We provide a list of connector categories which you can pick from. Lastly, provide an accurate logo so people can identify your connector. We default to your current logo for your connector but you have an option to change it to a new logo before listing. Changing your logo here changes your connector's logo everywhere.
+
+::: tip
+You should only use a logo and provide categories which correspond to the app you are connecting to. In cases where we see otherwise, we may have to disable your listing until it is rectified.
+:::
+
+By sharing on the community, you'll also get your dedicated connector landing page which anyone can view. Users will be able to see more details about the current shared version of your connector, your connector's description as well as some details about you. Having a well thought out description and image for your account helps users build trust in your connector when they find it on the community.
 
 ## Exporting packages with custom connectors
 [Recipe lifecycle management](/recipe-development-lifecycle.md) is a tool used to export and import entire folders of recipes from a sandbox environment to a production environment in Workato. Often, recipes that you want to export from one account and import into another contain custom connectors that you have built or cloned. When exporting these recipes, Workato helps to export any custom connectors in the manifests as well.
