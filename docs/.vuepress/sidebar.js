@@ -643,8 +643,7 @@ module.exports = [
             '/workbot/workbot-actions#return-menu-options',
             'Return menu options'
           ],
-          ['/workbot/workbot-actions#open-update-modal-view-action', 'Open/update modal view'],
-          ['/workbot/workbot-actions#push-modal-view-action', 'Push modal view']
+          ['/workbot/workbot-actions#open-update-or-push-modal-view-action', 'Open/update or push modal view'],
         ]
       },
       {
