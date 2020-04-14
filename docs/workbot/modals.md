@@ -69,6 +69,7 @@ The New command trigger datatree contains a **Modals** object which stores modal
 # Open/update or push modal view action
 This action allows you to build rich, interactive and dynamic modals that collect information from users in a structured manner. Modals are built using blocks.
 ![Modal example](~@img/workbot/workbot-blockkit/pretty-modal.png)
+*Open/update or push modal view action*
 
 You can open a new modal view, update an existing view, or push a new view on top of an existing one by setting the <b>Modal action type</b> to <b>open</b>, <b>update</b> or <b>push</b> respectively.
 ![Open/update or push modal view](~@img/workbot/workbot-blockkit/open-update-or-push-modal-view.png)
@@ -124,7 +125,7 @@ Typically, bot commands push views on top of the active view they exist in (**Vi
 When a view is submitted, it closes by default. Take care to only push a modal view on top of an active view.
 :::
 ## Open/update or push modal view action input
-The following table describes the configuration when working with Modals.
+The following table describes the configuration when using this action.
 
 <table class="unchanged rich-diff-level-one">
     <thead>
@@ -143,7 +144,7 @@ The following table describes the configuration when working with Modals.
         <tr>
             <td colspan=3>Modal action type (required)</td>
             <td>
-                You can open a new modal view, update an existing view, or push a new view on top of an existing one by setting the <b>Modal action type</b> to <b>open</b>, <b>update</b> or <b>push</b> respectively. This can be set dynamically by toggling to <b>Custom value</b>. View ID will be ignored if the action does not require it (e.g. opening/pushing a modal view).
+                You can open a new modal view, update an existing view, or push a new view on top of an existing one by setting the <b>Modal action type</b> to <b>open</b>, <b>update</b> or <b>push</b> respectively. This can be set dynamically by toggling to <b>Custom value</b>. View ID will be ignored if the action does not require it (e.g. when opening or pushing a modal view).
             </td>
         </tr>
         <tr>
