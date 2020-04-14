@@ -13,6 +13,7 @@ The Workbot for Slack connector has 5 triggers:
 - [New command](#new-command-trigger-building-custom-commands)
 - [New event (real-time)](#new-event-trigger)
 - [New message action trigger](#new-message-action-trigger)
+- [New shortcut trigger](#new-shortcut-action-trigger)
 - [New URL mention](#new-url-mention)
 - [New dynamic menu event](#new-dynamic-menu-event)
 
@@ -323,6 +324,19 @@ This trigger allows you to perform message actions onto existing Slack messages 
 When triggered, message actions launch a dialog to collect command input fields from the user. The original contents of the message (along with input obtained from the dialog) can be used to create tasks, tickets, and more. To start using message actions, check out our [message actions documentation](/workbot/workbot-message-action.md).
 
 This trigger allows you to build a custom command for Workbot in a Workato recipe. When you call this custom command in Slack to Workbot, the recipe will trigger and execute the actions you have defined. To find out how to create a simple command, check out [this guide](/workbot/workbot-commands.md).
+
+## New shortcuts trigger
+This trigger allows you to invoke a command using a shortcut you can define in your custom bot.
+
+![Shortcuts trigger](~@img/workbot/workbot/shortcuts-trigger.png)
+*New shortcuts trigger*
+
+![Shortcuts example](~@img/workbot/workbot/shortcuts-example.jpg)
+*Shortcut example*
+
+If you define command input values, shortcuts launch a modal to collect them from the user. If you'd rather customize your own modal view, do not define any define command input values but instead open your own modal using the [Open/update or push modal view](/workbot/modals.md#open-update-or-push-modal-view-action) action.
+
+To start using shortcuts, check out our [Shortcuts documentation](/workbot/workbot-shortcuts.md).
 
 ## New URL mention
 This trigger monitors certain types of URLs in Slack, and pulls pre-defined, formatted data into the channel when such an URL is mentioned. Currently, Salesforce and Github URLs are supported.
