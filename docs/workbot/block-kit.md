@@ -13,7 +13,7 @@ Blocks can be used in the following Slack surfaces:
 | Surface  | Applicable actions               |
 |----------|----------------------------------|
 | Messages | Post message, post command reply |
-| Modals   | Open/update modal, Push modal    |
+| Modals   | Open/update or push modal    |
 
 # Block kit previewer
 Preview the messages you've built with the Post message or Post command reply actions by clicking on **See preview on block kit builder** in the block hint.
@@ -42,23 +42,24 @@ Supported blocks are displayed in the table below.
 
 | Block type | Supported actions | Description |
 |----------------------------|-----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Section with text | Post message, Post command reply, Open/update modal, Push modal | Displays text. |
-| Section with image | Post message, Post command reply, Open/update modal, Push modal | Displays text alongside an image thumbnail. |
-| Section with button | Post message, Post command reply, Open/update modal, Push modal | Displays text alongside a button. On button submission, a button invokes another recipe and passes on any command input values it has. |
-| Section with fields | Post message, Post command reply, Open/update modal, Push modal | Displays text, along with an array of title-value fields, rendered in 2 columns beneath the section text. Maximum number of fields is 10. Maximum length for the text in each field is 2000 characters. |
-| Section with select menu | Post message, Post command reply, Open/update modal, Push modal | Displays text, alongside a select menu. Supports Slack's built-in dynamic menus (Select user, Select conversation, Select channel). For these menus, the ID is passed (e.g. user ID) when an option is chosen.   You can also define your own custom menu, or a dynamic menu (which allows a user to search/filter results). |
-| Section with overflow menu | Post message, Post command reply, Open/update modal, Push modal | Displays text, alongside an overflow menu. Supports static or dynamically generated overflow menu options. On submission, an overflow menu option invokes another recipe and passes on any command input values it has. |
-| Section with datepicker | Post message, Post command reply, Open/update modal, Push modal | Displays text, alongside a date picker. On date selection, a date picker invokes another recipe and passes on the selected date via a date parameter. You can customize the name of this date parameter. You can optionally pass additional command input values together with the date parameter. |
-| Divider | Post message, Post command reply, Open/update modal, Push modal | A content divider, like a `<hr>`, used to split up different blocks inside of a message. |
-| Image | Post message, Post command reply, Open/update modal, Push modal | Displays an image using a provided public URL. |
+| Section with text | Post message, Post command reply, Open/update or push modal | Displays text. |
+| Section with image | Post message, Post command reply, Open/update or push modal | Displays text alongside an image thumbnail. |
+| Section with button | Post message, Post command reply, Open/update or push modal | Displays text alongside a button. On button submission, a button invokes another recipe and passes on any command input values it has. |
+| Section with fields | Post message, Post command reply, Open/update or push modal | Displays text, along with an array of title-value fields, rendered in 2 columns beneath the section text. Maximum number of fields is 10. Maximum length for the text in each field is 2000 characters. |
+| Section with select menu | Post message, Post command reply, Open/update or push modal | Displays text, alongside a select menu. Supports Slack's built-in dynamic menus (Select user, Select conversation, Select channel). For these menus, the ID is passed (e.g. user ID) when an option is chosen.   You can also define your own custom menu, or a dynamic menu (which allows a user to search/filter results). |
+| Section with overflow menu | Post message, Post command reply, Open/update or push modal | Displays text, alongside an overflow menu. Supports static or dynamically generated overflow menu options. On submission, an overflow menu option invokes another recipe and passes on any command input values it has. |
+| Section with datepicker | Post message, Post command reply, Open/update or push modal | Displays text, alongside a date picker. On date selection, a date picker invokes another recipe and passes on the selected date via a date parameter. You can customize the name of this date parameter. You can optionally pass additional command input values together with the date parameter. |
+| Repeat block group | Post message, Post command reply, Open/update or push modal| This a special block type that's available only on the Workato bot platform. The repeat block group allows you to define a set of blocks to use as a pattern. By iterating through an existing list and mapping the list fields to the fields of the blocks in the pattern, you can dynamically generate repeat blocks. |
+| Divider | Post message, Post command reply, Open/update or push modal | A content divider, like a `<hr>`, used to split up different blocks inside of a message. |
+| Image | Post message, Post command reply, Open/update or push modal | Displays an image using a provided public URL. |
 | File | Post message, Post command reply | Posts a file based by specifying the Slack file ID. |
-| Context | Post message, Post command reply, Open/update modal, Push modal | Displays message context, which can include both images and texts. All images and texts will be joined together into a single string, in the order they appear in. |
-| Dynamic blocks | Post message, Post command reply, Open/update modal, Push modal | Dynamically generate a pattern of blocks by iterating through a list. First, obtain a list (e.g. List of Salesforce opportunities) and map the datapills to the pattern of blocks. Workato will repeat the pattern of blocks for each item in the list.                                                                      |
-| Singleline input | Open/update modal, Push modal | Displays a text input field to collect info from user. Input value is only passed on view submission. |
-| Multiline input | Open/update modal, Push modal | Displays a text area input field to collect info from user. Input value is only passed on view submission. |
-| Select menu input | Open/update modal, Push modal | Displays a select menu. Menu option value is only passed on view submission. |
-| Datepicker input |  Open/update modal, Push modal | Displays a datepicker. Date value is only passed on view submission. |
-| Checkboxes input | Open/update modal, Push modal | Displays checkboxes. Checkbox values are passed as an array on view submission. |
+| Context | Post message, Post command reply, Open/update or push modal | Displays message context, which can include both images and texts. All images and texts will be joined together into a single string, in the order they appear in. |
+| Dynamic blocks | Post message, Post command reply, Open/update or push modal | Dynamically generate a pattern of blocks by iterating through a list. First, obtain a list (e.g. List of Salesforce opportunities) and map the datapills to the pattern of blocks. Workato will repeat the pattern of blocks for each item in the list.                                                                      |
+| Singleline input | Open/update or push modal | Displays a text input field to collect info from user. Input value is only passed on view submission. |
+| Multiline input | Open/update or push modal | Displays a text area input field to collect info from user. Input value is only passed on view submission. |
+| Select menu input | Open/update or push modal | Displays a select menu. Menu option value is only passed on view submission. |
+| Datepicker input |  Open/update or push modal | Displays a datepicker. Date value is only passed on view submission. |
+| Checkboxes input | Open/update or push modal | Displays checkboxes. Checkbox values are passed as an array on view submission. |
 
 # Limitations
 - Include up to 100 blocks in each message.
