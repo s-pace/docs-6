@@ -192,7 +192,7 @@ After setting up sharing for your connector, you'll be able to share your connec
 *You may share your connector via share link or on the community*
 
 ::: tip
-Sharing your connector on the community allows any Workato user to find, install and use your connector. We encourage you to share your connectors to help out other fellow citizen integrators in their own recipes. As many face the same issues with integrations that led you to build this connector, sharing your connector on the community helps others to achieve their integration goals faster!
+Sharing your connector on the community allows any Workato user to find, install and use your connector. We encourage you to share your connectors to help out other fellow citizen integrators in their own recipes. As many face the same issues with integrations that led you to build this connector, sharing your connector on the community helps others to achieve their integration goals faster! [Find out more about listing and best practices here](/developing-connectors/community/community-listing.md).
 :::
 
 When you list on the community, you'll be asked for the app which this connector connects to. You should select the app that best describes your connector. Simply search for the name of the application you are connecting to and select from a list of apps that Workato has approved.
@@ -211,7 +211,7 @@ You'll also need to provide some basic categories of what your connector does. W
 You should only use a logo and provide categories which correspond to the app you are connecting to. In cases where we see otherwise, we may have to disable your listing until it is rectified.
 :::
 
-By sharing on the community, you'll also get your dedicated connector landing page which anyone can view. Users will be able to see more details about the current shared version of your connector, your connector's description as well as some details about you. Having a well thought out description and image for your account helps users build trust in your connector when they find it on the community.
+By sharing on the community, you'll also get your dedicated connector landing page which anyone can view. Users will be able to see more details about the current shared version of your connector, your connector's description as well as some details about you. Having a well thought out description and image for your account helps users build trust in your connector when they find it on the community. Don't forget to check out our best practices for listing your connector over [here](/developing-connectors/community/community-listing.html#best-practices-listing-a-community-connector).
 
 ## Exporting packages with custom connectors
 [Recipe lifecycle management](/recipe-development-lifecycle.md) is a tool used to export and import entire folders of recipes from a sandbox environment to a production environment in Workato. Often, recipes that you want to export from one account and import into another contain custom connectors that you have built or cloned. When exporting these recipes, Workato helps to export any custom connectors in the manifests as well.
