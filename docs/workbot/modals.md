@@ -4,11 +4,11 @@ date: 2020-03-19 00:00:00 Z
 ---
 
 # Block kit in modals
-Modals allow you to build rich, interactive and dynamic views that collect information from users in a structured manner. This is done by using the [Open/update or push modal view](#open-update-or-push-modal-view-action)
+Modals allow you to build rich, interactive and dynamic views that collect information from users in a structured manner. This is done by using the [Open/update or push modal view](#open-update-or-push-modal-view-action) action.
 ![Block kit modal example](~@img/workbot/workbot-blockkit/pretty-modal.png)
 *Block kit modal example*
 
-Modals views are built using blocks. A modal view has a title, the view (comprised of blocks), and submission/close buttons. You can also use modal-only blocks called input blocks. These are:
+Modals views are built using blocks. A modal view has a title, the view (comprised of blocks), and submit/close buttons. You can also use modal-only blocks called input blocks. These are:
 - Single-line input
 - Multi-line input
 - Select menu input
