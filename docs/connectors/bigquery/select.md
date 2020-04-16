@@ -6,7 +6,7 @@ date: 2019-12-10 06:10:00 Z
 # BigQuery - Select actions
 
 ## Select rows
-This action lets you select rows based on certain criteria defined by a ` WHERE` condition. Rows from the selected table that match the `WHERE` condition will be returned as the output of this action. This action is a long action, enabling you to pull data from larger tables. If no data is returned in the first few seconds of the job execution in BigQuery, Workato will wait a periodic amount of time before checking if the data is ready to be retrieved from BigQuery.
+This action lets you select rows based on certain criteria defined by a `WHERE` condition. Rows from the selected table that match the `WHERE` condition will be returned as the output of this action. This action is a long action, enabling you to pull data from larger tables. If no data is returned in the first few seconds of the job execution in BigQuery, Workato will wait a periodic amount of time before checking if the data is ready to be retrieved from BigQuery.
 
 ![Select rows action](~@img/bigquery/select-rows-action.png)
 *Select rows action*
@@ -49,7 +49,7 @@ This action lets you select rows based on certain criteria defined by a ` WHERE`
     </tr>
     <tr>
       <td>Limit</td>
-      <td>This input field determines the maximum number of rows to return. The default limit is 50000 and capped at a maximum of 50000 rows for a single <b>Select rows</b> action.</td>
+      <td>This input field determines the maximum number of rows to return. The default limit is 50000 and this can be left blank for the entire result set to return. To retrieve all rows, you will need to use the <a href = '/connectors/bigquery/get-query-result-action.md'>get query result action to retrieve more rows</a> </td>
     </tr>
     <tr>
       <td>Offset</td>
@@ -74,6 +74,30 @@ This action lets you select rows based on certain criteria defined by a ` WHERE`
     <tr>
       <td>Rows</td>
       <td>An array of the rows. Each datapill in the row object corresponds to a single column.</td>
+    </tr>
+    <tr>
+      <td>Kind</td>
+      <td>The kind of job that was executed. This should be `queryResponse`</td>
+    </tr>
+    <tr>
+      <td>Job reference</td>
+      <td>Detils about the job itself. This object returns the Project ID, Job ID and location of the query. In cases where you need more results, you can use the the [get query result action to retrieve more rows](/connectors/bigquery/get-query-result-action.md)</td>
+    </tr>
+    <tr>
+      <td>Total rows</td>
+      <td>Total rows returned by this query. Useful when helping with Pagination using the [get query result action](/connectors/bigquery/get-query-result-action.md)</td>
+    </tr>
+    <tr>
+      <td>Etag</td>
+      <td>Schema of the table or result. </td>
+    </tr>
+    <tr>
+      <td>Jobs complete</td>
+      <td>Should always be "Done". </td>
+    </tr>
+    <tr>
+      <td>Total Bytes processed by the query</td>
+      <td>us</td>
     </tr>
    </tbody>
 </table>
@@ -114,7 +138,7 @@ This action lets you select rows based on a custom SQL query. Rows that are retu
     </tr>
     <tr>
       <td>Limit</td>
-      <td>This input field determines the maximum number of rows to return. The default limit is 50000 and capped at a maximum of 50000 rows</td>
+      <td>This input field determines the maximum number of rows to return. The default limit is 50000 and this can be left blank for the entire result set to return. To retrieve all rows, you will need to use the <a href = '/connectors/bigquery/get-query-result-action.md'>get query result action to retrieve more rows</a> </td>
     </tr>
     <tr>
       <td>Offset</td>
@@ -143,6 +167,30 @@ This action lets you select rows based on a custom SQL query. Rows that are retu
     <tr>
       <td>Rows</td>
       <td>An array of the rows. Each datapill in the row object corresponds to a single column.</td>
+    </tr>
+    <tr>
+      <td>Kind</td>
+      <td>The kind of job that was executed. This should be `queryResponse`</td>
+    </tr>
+    <tr>
+      <td>Job reference</td>
+      <td>Detils about the job itself. This object returns the Project ID, Job ID and location of the query. In cases where you need more results, you can use the <a href = '/connectors/bigquery/get-query-result-action.md'>get query result action to retrieve more rows</a></td>
+    </tr>
+    <tr>
+      <td>Total rows</td>
+      <td>Total rows returned by this query. Useful when helping with Pagination using the [get query result action](/connectors/bigquery/get-query-result-action.md)</td>
+    </tr>
+    <tr>
+      <td>Etag</td>
+      <td>Schema of the table or result. </td>
+    </tr>
+    <tr>
+      <td>Jobs complete</td>
+      <td>Should always be "Done". </td>
+    </tr>
+    <tr>
+      <td>Total Bytes processed by the query</td>
+      <td>us</td>
     </tr>
    </tbody>
 </table>

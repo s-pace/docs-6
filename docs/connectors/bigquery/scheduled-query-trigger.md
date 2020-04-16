@@ -6,7 +6,9 @@ date: 2019-12-10 06:00:00 Z
 # BigQuery - Scheduled Query trigger
 
 ## Scheduled Query Trigger
-This trigger executes a query on a regular basis. The result of the query is batched into jobs of a user defined batch size.
+This trigger executes a query on a regular basis. The result of the query is batched into jobs of a user defined batch size. By default, Workato does not automatically attempt to deduce what columns are returned from your query due to the associated costs which may occur. Instead, we rely on you to define the expected output columns manually. This can be done easily using our schema wizard. [Find out more here](/connectors/bigquery.md#how-to-connect-to-bigquery-on-workato)
+
+In cases where you would like Workato to generate your output columns automatically, change the input field `Automatic schema introspection` to `Yes`. Take note that we fire a query in your BigQuery instance each time the input SQL statement is changed to attempt to derive the output columns. In cases where the query takes too long to return, the bytes processed are too high or the syntax is incorrect, you will have to define your output fields manually.
 
 ![Scheduled query trigger](~@img/bigquery/scheduled-query-input.png)
 *Scheduled query trigger*
@@ -39,7 +41,7 @@ This trigger executes a query on a regular basis. The result of the query is bat
     </tr>
     <tr>
       <td>Automatic schema introspection</td>
-      <td>Workato automatically tries to introspect the output of your query. In cases where the query takes too long or if datapills are used, toggle this to false and define the output fields of your query manually.</td>
+      <td>Defaults to "No". If "Yes", Workato automatically tries to introspect the output of your query. In cases where the query takes too long or if datapills are used, toggle this to "No" and define the output fields of your query manually.</td>
     </tr>
     <tr>
       <td>Output fields</td>
@@ -70,8 +72,28 @@ This trigger executes a query on a regular basis. The result of the query is bat
   </thead>
   <tbody>
     <tr>
+      <td>Range</td>
+      <td>The range of rows define by the Unique key</td>
+    </tr>
+    <tr>
       <td>Rows</td>
       <td>An array of the rows. Each datapill in the row object corresponds to a single column.</td>
+    </tr>
+    <tr>
+      <td>First batch</td>
+      <td>"True" if this is the first batch of a schedule query trigger</td>
+    </tr>
+    <tr>
+      <td>Last batch</td>
+      <td>"True" if this is the last batch of a schedule query trigger</td>
+    </tr>
+    <tr>
+      <td>Starting offset</td>
+      <td>The offset from the first row of the query for the first record in this batch</td>
+    </tr>
+    <tr>
+      <td>Ending offset</td>
+      <td>The offset from the first row of the query for the last record in this batch</td>
     </tr>
    </tbody>
 </table>

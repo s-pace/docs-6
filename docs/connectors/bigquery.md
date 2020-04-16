@@ -27,7 +27,7 @@ The BigQuery connector uses OAuth2 to authenticate with BigQuery.
 </table>
 
 ## Rate limits on BigQuery
-We highly recommend using batch actions to insert multiple rows at a time. [BigQuery's rate limits](https://cloud.google.com/bigquery/quotas#standard_tables) on Standard tables indicates that operations on tables that append, overwrite or insert data in tables can only be performed 1000 times a day. This may be easily exceeded if rows are added one by one.
+[BigQuery's rate limits](https://cloud.google.com/bigquery/quotas#standard_tables) on tables indicates that our `bulk` insert operations on tables can only be performed 1000 times a day. To bypass these limits, use our `Insert row` and `Insert rows` actions which are not affected by such limits.
 
 ## Working with the BigQuery connector
 After establishing a connection with the BigQuery connector, most actions will require some additional parameter inputs.
@@ -117,9 +117,15 @@ When used in a **Delete rows** action, this will delete all rows in the `users` 
 *Using datapills in `WHERE` condition with subquery*
 
 ### Defining your output fields
+In some cases, actions and triggers in BigQuery will allow you to define the expected output columns a query. This input field shows up in the following triggers and actions:
+* Scheduled query trigger
+* Get query job output
+* Select rows using custom SQL
+
+Define your output fields easily using the output schema designer by using our CSV uploader. In these cases, simply run a sample query in the BigQuery console like above and export a CSV. 
 
 ![Export CSV from BigQuery](~@img/bigquery/export-results.png)
 
-Define your output fields easily using the output schema designer by using our CSV uploader. Workato is unable to introspect schema automatically when your query runs for too long, processes too many bytes or contains datapills. In these cases, simply run a sample query in the BigQuery console like above and export a CSV. Upload this CSV into the schema wizard and automatically generate all fields for you.
+Upload this CSV into the schema wizard and automatically generate all fields for you.
 
 ![CSV schema wizard](~@img/bigquery/csv-wizard.gif)
