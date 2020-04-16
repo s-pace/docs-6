@@ -8,7 +8,7 @@ date: 2019-12-10 06:10:00 Z
 ## Insert row
 This action inserts a single row into a table in BigQuery via streaming. There is no limit to the number of rows you can stream per day. When rows are streamed, this data can take up to 90 minutes to become available for copy and export operations. [Sample Recipe](https://www.workato.com/recipes/1142458?st=aa73c6)
 
-:::note
+::: warning NOTE
 Streaming of rows is done on a best effort basis by BigQuery. In cases where rows have failed, they will show up in the step output. The action can always be run again in cases of failures.
 :::
 
@@ -68,7 +68,7 @@ Streaming of rows is done on a best effort basis by BigQuery. In cases where row
 ## Insert rows in batches
 This action inserts a batch of rows into a table in BigQuery via streaming. There is no limit to the number of rows you can stream per day. When rows are streamed, this data can take up to 90 minutes to become available for copy and export operations. [Sample recipe](https://www.workato.com/recipes/1142493?st=22f16d)
 
-:::note
+::: warning NOTE
 Streaming of rows is done on a best effort basis by BigQuery. In cases where rows have failed, they will show up in the step output. The action can always be run again in cases of failures.
 :::
 
@@ -132,7 +132,7 @@ Streaming of rows is done on a best effort basis by BigQuery. In cases where row
 ## Insert rows in Bulk
 This action inserts a batch of rows into the selected table.
 
-:::note
+::: warning NOTE
 We strongly advise users to use our insert row and insert rows in batch actions where ever possible. These actions face no limits no insert limits per day whereas inserting in Bulk can only be done 1000 times per table per day.
 :::
 
@@ -216,7 +216,7 @@ We highly recommend using batch actions to insert multiple rows as a time. [BigQ
 ## Load data into BigQuery
 This action loads data from a file into BigQuery. This is a powerful action that can senses changes in the number of columns in an incoming CSV or JSON file and extend the schema of the table in BigQuery to accept it. [Sample recipe](https://www.workato.com/recipes/1142619?st=28a85c)
 
-:::note
+::: warning NOTE
 To enable this schema detection and let BigQuery know to extend the table schema, you will need to configure a few properties such as `Autodetect`, `Schema update options` and `Write disposition`.
 :::
 
