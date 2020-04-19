@@ -4,43 +4,84 @@ date: 2018-04-08 10:43:00 Z
 ---
 # Managing API Clients and Access Policies
 
-API owners can manage and monitor clients' usage of their APIs from
-the API Platform page.
+API owners can manage and monitor clients' usage of their APIs from the API Platform page. Clients are logical groups of users such as members from the same organization, and access profiles are individual API consumers.
 
-The API Platform tool is accessible from the Tools menu. Once in the main API Platform page, select the **Clients** tab to create and manage API clients. A typical screen would look like this:
+## API Clients
+From the API Platform page, select the **Clients** tab. Here, API owners can manage and create new API clients. A typical screen would look like this:
+
+![API platform client tab](~@img/api-mgmt/api-client-homepage.png)
+*API platform client tab*
+
+### Create new API client
+
+To create a new API client, simply select **Add New Client**. An API client creation wizard will appear to help you define details about your new API client.
 
 ![Create API Client](~@img/api-mgmt/api-new-client.png)
 *Create API Client*
 
-A client must have a name, and may have a description and an associated
-logo or image.
+A client must have a name. It may have a description and an associated logo or image. It may represent an organization, department, or cluster of users who are accessing your Workato API.
 
-Note that there is actually no requirement that an API client be a human individual. A client is associated with an API token, which grants access to a certain group of APIs, under the control of certain policies.  The actual API caller might be a script or automated program, rather than a person. However, as a best practice, it is recommended that you distribute one API token per person you permit to access your API, so that you can identify the users who are making calls to your API endpoints.
+## Access profile
 
-Once a client is created in the **Client** tab, the API owner will then be prompted to create a new access profile for that client.
+Each client can contain multiple access profiles that are associated with groups of APIs ([API collection](/api-mgmt/api-collections.md)). Workato recommends that API owners provision unique access profiles for each API consumer. This allows the API owner to delegate access to specific API collections and impose selected [access policies](/api-mgmt/api-access-policies.md). Furthermore, it allows you to generate usage information about how your API consumers are using your API endpoints.
+
+Note that there is no requirement for an API consumer to be a human individual. The actual API caller might be a script or automated program, rather than a person.
+
+![API client with access profile](~@img/api-mgmt/api-client-creation.png)
+*API client with access profile*
+
+Note the **API key** field. A unique API token is generated for each client. This token is a long string of characters. It needs to be supplied to the client so that the client can connect to the API. Treat this API key as confidential information: it should be known only to the API owner and the client.
+
+An API token can be revoked, and a new one issued, by clicking on the **Refresh** button next to the token.
+
+A client can be **Disabled** or **Enabled**. A disabled client cannot call any APIs. Moving the slider right will switch the client's status to **Enabled**, after which he/she will be allowed to make API calls.
+
+### Create new Access Profile
+
+From the Client tab, the API owner can create new access profiles for that client.
 
 ![New Access Profile](~@img/api-mgmt/api-new-access-profile.png)
 *New Access Profile*
 
 The access profile screen has the following fields:
 
-| Field name | Description |
-| --- | --- |
-| Name<br>*(Required)* | Provide a meaningful access profile name.  |
-| API collections<br>*(Required)* | One or more API collections to which the client has access. |
-| Policy | The policy that applies to this client. |
-| IP Whitelist | One or more IP addresses to be whitelisted. When this is set, only requests initiated from these addresses will be allowed: all other access will be denied. |
-| Authentication method<br>*(Required)* | This can be an Auth Token or a JSON Web Token (JWT). |
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th colspan=2 width='30%'>Field Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan=2>Name<br><i>(Required)</i></td>
+            <td>Provide a meaning ful access profile name.</td>
+        </tr>
+        <tr>
+            <td colspan=2>API collections<br><i>(Required)</i></td>
+            <td>One or more API collections to which the client has access.</td>
+        </tr>
+        <tr>
+            <td colspan=2>Policy</td>
+            <td>The policy that applies to this access profile.</td>
+        </tr>
+        <tr>
+            <td colspan=2>IP Whitelist</td>
+            <td>One or more IP addresses to be whitelisted. When this is set, only requests initiated from these addresses will be allowed: all other access will be denied.</td>
+        </tr>
+        <tr>
+            <td colspan=2>Authentication method<br><i>(Required)</i></td>
+            <td>This can be an Auth Token or a JSON Web Token (JWT).<br>See <a href="/api-mgmt/jwt-token.html">here</a> for more information on working with JWT Web Tokens.</td>
+        </tr>
+        <tr>
+            <td rowspan=2><i>(Only if authentication method is JWT)</i></td>
+            <td>Signing method</td>
+            <td>Define your JWT signing method. This can be HMAC (shared) or RSA (public key).</td>
+        </tr>
+        <tr>
+            <td>JWT secret/key</td>
+            <td>The signing value or key.</td>
+        </tr>
+    </tbody>
+</table>
 
-If "JSON Web Token (JWT)" is selected there are two additional fields available: **signing method**, and **secret or key**. See [Access Tokens](/api-mgmt/access-tokens.md) for details.
-
-Once the access profile fields have been filled in, click on **Add profile** to create the client and save that client's associated profile. After this step, the screen will look something like this:
-
-![API client creation](~@img/api-mgmt/api-client-creation.png)
-*API client creation*
-
-Note the **API token** field. A unique API token is generated for each client. This token is a long string of characters. It needs to be supplied to the client so that the client can connect to the API. Treat this API key as confidential information: it should be known only to the API owner and the client.
-
-An API token can be revoked, and a new one issued, by clicking on the **Refresh** button next to the token.
-
-A client can be **Disabled** or **Enabled**. A disabled client cannot call any APIs. Moving the slider right will switch the client's status to **Enabled**, after which he/she will be allowed to make API calls.
