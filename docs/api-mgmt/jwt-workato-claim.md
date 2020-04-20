@@ -10,27 +10,27 @@ Identity providers streamline the process of maintaining verified access to mult
 ![Identity provider issues JWT to the end user, who uses it to obtain verified access to Workato API platform](~@img/api-mgmt/jwt-flow.png)
 *Identity provider issues JWT to the end user, who uses it to obtain verified access to Workato API platform*
 
-When Workato receives an incoming request, the JWT token is checked to see if it contains a valid API Token. Workato does this to authenticate if the request is coming from a valid access profile. If no valid token is found, the API request will return a `403 forbidden` error.
+When Workato receives an incoming request, the JWT token is checked to see if it contains a valid API key. This is done to determine that the request is coming from a valid access profile. If no valid token is found, the API request will return a `403 forbidden` error.
 
-Workato will inspect the following JWT claims in sequential order. Workato identifies the **first claim** that is not empty and compares the claim value with an internal list of verified access profiles. If the token is not verified, the API request will return a `403 forbidden` error. Otherwise, if a valid API token is found, the API request will be successful.
+Workato will inspect the following JWT claims in sequential order. Workato identifies the **first claim** that is not empty and compares the claim value with an internal list of known access profiles. If the token is not verified, the API request will return a `403 forbidden` error. Otherwise, if a valid API key is found, the API request will be successful.
 
-| JWT claims | Description |
-| ---------- | ----------- |
-| `https://www.workato.com/sub ` | This is a namespace claim. As it uses unique names, this claim is unlikely to be restricted by the identity providers. |
-| `workato_sub` | This is a payload claim. Workato will inspect this claim if the above claims are empty. |
-| `kid` | This is a header claim. Workato will inspect this claim if the above claims are empty. |
-| `sub` | This represents the subject of the JWT. Some identity providers reserve this JWT claim and thus Workato API token cannot be used here. Workato will inspect this claim if the above claims are empty. |
+| Priority | Part | JWT claims | Description |
+| :------: | :--: | ---------- | ----------- |
+| 1st | _payload_ | `https://www.workato.com/sub ` | This is a namespace claim. As it uses unique names, this claim is unlikely to be restricted by the identity providers. |
+| 2nd | _payload_ | `workato_sub` | Workato will inspect this claim if the above claims are empty. |
+| 3rd | _header_  | `kid` | This is a header claim. Workato will inspect this claim if the above claims are empty. |
+| 4th | _payload_ | `sub` | This represents the subject of the JWT. Some identity providers reserve this JWT claim and thus Workato API key cannot be used here. Workato will inspect this claim if the above claims are empty. |
 
 ## How to configure Workato claim
 
-Let’s go through an example of configuring a workato claim for Auth0. This identity provider restricts the `kid` and `sub` claims. Hence, we will be configuring a namespace claim to hold our API token.
+Let’s go through an example of configuring a workato claim for [Auth0](https://auth0.com/). This identity provider restricts the `kid` and `sub` claims. Furthermore, Auth0 requires all custom claims to be namespace. Hence, we will be configuring a namespace claim to hold our API key.
 
 ![Configure JWT in Auth0](~@img/api-mgmt/auth0-configure-jwt-flow.png)
 *Configure JWT in Auth0*
 
 This process consists of three stages:
 1. Obtain the [RSA certificate](#_1-obtain-rsa-certificate) from Auth0.
-2. Configure an access profile in Workato API platform and [obtain the API token](#_2-configure-workato-access-profile).
+2. Configure an access profile in Workato API platform and [obtain the API key](#_2-configure-workato-access-profile).
 3. Configure Auth0 application metadata and [JWT namespace claim](#_3-configure-jwt-claim).
 
 ## 1. Obtain RSA certificate
@@ -49,21 +49,21 @@ First, create an application in Auth0 and obtain the RSA certificate.
 
 ## 2. Configure Workato access profile
 
-Next, configure an access profile in Workato and obtain the API token.
+Next, configure an access profile in Workato and obtain the API key.
 
 | Steps | Description |
 | ----- | ----------- |
-| 1.    | Find **Tools** > **API platform** > slect a Client > **Create access profile**. See here for more information about [API clients](/api-mgmt/api-client-mgmt#api-clients).<br>![Open Workato API platform](~@img/api-mgmt/open-api-platform.png)*Open Workato API platform* |
-| 2.    | Select **JSON Web Taken (JWT)** as the authentication method. Profide the **RSA certificate** from the previously stage. See here for more information about [configuring access profile](/api-mgmt/api-client-mgmt#create-new-access-profile).<br>![Provide RSA certificate](~@img/api-mgmt/auth0-configure-provide-certifcate.png)*Provide RSA certificate* |
-| 3.    | Locate and copy the **API token** to the access profile you have just created.<br>![Copy API token](~@img/api-mgmt/copy-client-url.png)*Copy API token* |
+| 1.    | Find **Tools** > **API platform** > select a Client > **Create access profile**. Learn more about API clients [here](/api-mgmt/api-client-mgmt#api-clients).<br>![Open Workato API platform](~@img/api-mgmt/open-api-platform.png)*Open Workato API platform* |
+| 2.    | Select **JSON Web Taken (JWT)** as the authentication method. Profide the **RSA certificate** from the previously stage. Learn more about configuring access profiles [here](/api-mgmt/api-client-mgmt#create-new-access-profile).<br>![Provide RSA certificate](~@img/api-mgmt/auth0-configure-provide-certifcate.png)*Provide RSA certificate* |
+| 3.    | Locate and copy the **API key** to the access profile you have just created.<br>![Copy API key](~@img/api-mgmt/copy-client-url.png)*Copy API key* |
 
 ## 3. Configure JWT claim
 
-Lastly, configure the API token into a namespace claim on Auth0.
+Lastly, configure the API key value into a namespace claim on Auth0.
 
 | Steps | Description |
 | ----- | ----------- |
-| 1.    | Go to **Advanced settings** > find the **Application metadata** tab. Input the following `key=workato_sub`, ` value=<API-TOKEN>`. Then, select **Save changes**.<br>![Save API token in Auth0 application](~@img/api-mgmt/auth0-configure-add-token.png)*Save API token in Auth0 application* |
+| 1.    | Go to **Advanced settings** > find the **Application metadata** tab. Input the following `key=workato_sub`, ` value=<API-TOKEN>`. Then, select **Save changes**.<br>![Save API key in Auth0 application](~@img/api-mgmt/auth0-configure-add-token.png)*Save API key in Auth0 application* |
 | 2.    | Select **Hooks** from the sidebar > **Create new hook**.<br>![Create new hook](~@img/api-mgmt/auth0-configure-create-hook.png)*Create new hook* |
 | 3.    | Select **Client credentials exchange**. This step adds a custom Workato claim to the [JWT token](https://auth0.com/docs/hooks/extensibility-points/client-credentials-exchange) that is generate by Auth0.<br>![Select client credentials exchange](~@img/api-mgmt/auth0-configure-configure-hook.png)*Select client credentials exchange* |
 | 4.    | Open the hook that you have just created.<br>![Edit hook](@img/api-mgmt/auth0-configure-edit-hook.png)*Edit hook* |

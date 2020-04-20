@@ -5,9 +5,9 @@ date: 2020-04-18 12:26:00 Z
 
 # JSON Web Token
 
-For additional security, API consumers can now make use of JSON Web Tokens (JWT). This is a standard [RFC 7159](https://tools.ietf.org/html/rfc7519) for web authentication. JWT tokens are signed using a secret or key selected by the manager of the [access profile](/api-mgmt/api-client-mgmt.md#access-profile).
+For additional security, API consumers can make use of JSON Web Tokens (JWT). This is a standard [RFC 7159](https://tools.ietf.org/html/rfc7519) for web authentication. JWT tokens are signed using a secret or key selected by the manager of the [access profile](/api-mgmt/api-client-mgmt.md#access-profile).
 
-JWT tokens are commonly used with identity providers (for example Okta, OneLogin, Auth0) who authenticate users and provide verified access to multiple applications. Also known as Single-Sign On, identity providers streamline access to applications through a central authentication mechanism.
+JWT tokens are used by identity providers (for example Okta, OneLogin, Auth0) that authenticate users and provide verified access to business applications. Also known as Single-Sign On, identity providers streamline access to applications through a central authentication mechanism.
 
 Also, JWT tokens can be signed to verify that the token is legitimate. This allows the recipient to validate that the contents have not been modified by anyone else, adding another layer of security.
 
@@ -23,7 +23,7 @@ Workato supports two signing methods:
 | Signing method | Description |
 | :------------: | ----------- |
 | [**HMAC**](#hmac-signing-method) | HMAC uses a symmetric shared secret (client and server have the same secret). This uses a 256-bit secret value. |
-| [**RSA**](#rsa-signing-method)   | RSA uses an asymmetric key pair (client has a private key and shared the public key with the server) |
+| [**RSA**](#rsa-signing-method)   | RSA uses an asymmetric key pair (client has a private key and shares the public key with the server). |
 
 ## HMAC signing method
 
@@ -76,13 +76,13 @@ A JWT token can encapsulate several pieces of information that the API requester
 }
 ```
 
-Here `sub` is a claim that denotes the principal subject (or API requester). The `sub` value is the API token that is obtainable from the [Access Profile screen](/api-mgmt/api-client-mgmt.md#access-profile) in Workato. Lastly, `name` is the name of the requester.
+Here `sub` is a claim that denotes the principal subject (or API requester). The `sub` value is the API key that is obtainable from the [Access Profile screen](/api-mgmt/api-client-mgmt.md#access-profile) in Workato. Lastly, `name` is the name of the requester.
 
-Workato will inspect the `sub` claim to look for a valid API token before accepting the API request. If the `sub` claim is restricted by the identity provider and you are unable to provide the API token in this claim, you can configure custom Workato claims to store the API token. See [here](/api-mgmt/jwt-workato-claim.md).
+Workato will inspect the `sub` claim to look for a valid API key before accepting the API request. If the `sub` claim is restricted by the identity provider and you are unable to provide the API key in this claim, you can configure custom **Workato claims** to store the API key. Learn more [here](/api-mgmt/jwt-workato-claim.md).
 
 The JWT token is a signed representation of the JSON structure. You can generate a JWT token using the tools at [JWT.IO](https://jwt.io/).
 
-With JWT, the API requester is responsible for generating and packaging a token in the correct format. An online tool is available at [JWT.IO](https://jwt.io/) to facilitate this. The JSON format text mentioned above should be pasted or typed into the "payload" field on the "Decoded" side of the tool. In addition, they will paste in the private key (RSA) or secret string (HMAC) in the "Verify Signature" section. The signed and encoded key then appears on the right-hand side in the "Encoded" section.
+With JWT, the API requester is responsible for generating and packaging a token in the correct format. An online tool is available at [JWT.IO](https://jwt.io/) to facilitate this. The JSON format text mentioned above should be pasted or typed into the "payload" field on the "Decoded" side of the tool. In addition, they will paste in the private key (RSA) or secret string (HMAC) in the "Verify Signature" section. The signed and encoded key then appears on the left-hand side in the "Encoded" section.
 
 The two standard algorithms Workato supports are **HS256** (aka HMAC) and **RS256** (aka RSA).
 
@@ -91,7 +91,7 @@ For example, generation of an HMAC JWT might look like this:
 ![JWT Generation](~@img/api-mgmt/jwt-generation.png)
 *JWT Generation*
 
-Similarly, an identity provider will be able to issue JWT token with the API token embedded in the corresponding JWT claim. See [here](/api-mgmt/jwt-workato-claim.md) for more information on JWT Workato claim.
+Similarly, an identity provider will be able to issue JWT token with the API key embedded in the corresponding JWT claim. See [here](/api-mgmt/jwt-workato-claim.md) for more information on JWT Workato claim.
 
 ## Calling an API endpoint with JWT
 

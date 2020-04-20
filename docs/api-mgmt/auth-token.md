@@ -7,14 +7,14 @@ date: 2020-04-18 12:26:00 Z
 
 An Auth token is the simplest way to authenticate the API request with Workato.
 
-First, retrieve the API token from the access profile. Use the copy icon to copy the API token to your clipboard.
+First, retrieve the API key from the access profile. Use the copy icon to copy the API key to your clipboard.
 
 ![Auth Token for an Access profile](~@img/api-mgmt/auth-token.png)
 *Auth Token for an Access profile*
 
-Next, configure a header with your API token value. For example:
+Next, configure a header with your API key value. For example:
 
-```
+```bash
 -H 'API-TOKEN: <your-token>'
 ```
 

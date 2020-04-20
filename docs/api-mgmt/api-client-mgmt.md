@@ -30,11 +30,11 @@ Note that there is no requirement for an API consumer to be a human individual. 
 ![API client with access profile](~@img/api-mgmt/api-client-creation.png)
 *API client with access profile*
 
-Note the **API key** field. A unique API token is generated for each client. This token is a long string of characters. It needs to be supplied to the client so that the client can connect to the API. Treat this API key as confidential information: it should be known only to the API owner and the client.
+Note the **API key** field. A unique API key is generated for each client. This token is a long string of characters. It needs to be supplied to the client so that the client can connect to the API. Treat this API key as confidential information: it should be known only to the API owner and the client.
 
-An API token can be revoked, and a new one issued, by clicking on the **Refresh** button next to the token.
+An API key can be revoked, and a new one issued, by clicking on the **Refresh** button next to the token.
 
-A client can be **Disabled** or **Enabled**. A disabled client cannot call any APIs. Moving the slider right will switch the client's status to **Enabled**, after which he/she will be allowed to make API calls.
+A client can be **Disabled** or **Enabled**. A disabled client cannot call any APIs. Moving the slider right will switch the client's status to **Enabled**, after which API calls will be accepted.
 
 ### Create new Access Profile
 
