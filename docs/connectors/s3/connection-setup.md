@@ -37,7 +37,7 @@ Refer to [Amazon documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/
 
 If you prefer not to share your Amazon S3 access key, you can connect using [IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
 
-By provisioning a dedicated IAM profile, the owner of the S3 instance can grant Workato access to AWS resources without sharing AWS security credentials. It also helps to maintain permission boundaries, including controlled access to specfic AWS folders and actions that are permitted by the third-party application (e.g. Workato).
+By provisioning a dedicated IAM profile, the owner of the S3 instance can grant Workato access to AWS resources without sharing AWS security credentials. It also helps to maintain permission boundaries, including controlled access to specific AWS folders and actions that are permitted by the third-party application (e.g. Workato).
 
 Workato recommends to grant only the required permissions and avoid using `AmazonS3AllAccess` whenever possible.
 
