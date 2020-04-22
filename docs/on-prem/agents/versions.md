@@ -1,6 +1,6 @@
 ---
-title: On-prem Agent - Extensions
-date: 2018-11-29 12:00:00 Z
+title: On-prem Agent - Version notes
+date: 2020-04-22 12:00:00 Z
 ---
 
 # OPA versions
@@ -27,12 +27,54 @@ Learn more about on-prem groups [here](/on-prem/groups.md).
 ### 2.6.0
 
 - Major release.
-- Introduces [on-prem groups](/on-prem/groups.md).
+- Introduce [on-prem groups](/on-prem/groups.md).
 - Introduce High Availability (HA) and load balancing.
 
 ## v2.5
 ___
 
+Workato On-prem agent now supports database connection pooling to reduce lag between reconnection attempts. Oracle Binary Large Object (BLOB) size limit has been increased.
+
 ### 2.5.7
 
 - Fixes the issue with conenction pool not recycling connections properly.
+
+### 2.5.6
+
+- Support for database XML types
+- Ensure that command-line script is fully read for background scripts.
+- Update MySQL JDBC driver.
+
+### 2.5.5
+
+- Allows cancelling database queries on recipe job timeout.
+- Fixes Active Directory issue with retrieving a schema.
+
+### 2.5.4
+
+- Support for SAP connector array types.
+- Log rotation feature.
+
+### 2.5.3
+
+- Fixes reconnection delay.
+- Fixes for SAP connector classpath issue.
+- Fixes the issue with uninstalling a Windows service.
+
+### 2.5.2
+
+- Fixes Windows service configuration shortcut.
+
+### 2.5.1
+
+- Fixes proxy authentication issues on initial connect.
+
+### 2.5.0
+
+- Support for database connection pooling.
+- Oracle **SELECT** performance enhancements.
+- Allow Oracle BLOBs larger than 4000 bytes.
+- Added digital signature to Windows Installer.
+- Windows installer is now able to deploy several agent instances on the same box.
+- Fixes the issue of multiple connection attempts using the same key. When the agent recognizes that two or more agents are using same key, it will stop reconnecting.
+

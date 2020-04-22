@@ -468,7 +468,7 @@ module.exports = [
           ['/on-prem/agents/proxy', 'Proxy server'],
           ['/on-prem/agents/logging', 'Logging'],
           ['/on-prem/agents/extension', 'Extensions'],
-          ['/on-prem/agents/versions', 'Versions']
+          ['/on-prem/agents/versions', 'Version notes']
         ]
       }
     ]
