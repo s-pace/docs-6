@@ -16,7 +16,7 @@ This is a major upgrade from [**v2.5**](#v2-5). In order to improve reliability 
 
 On-prem groups help achieve zero downtime for recipes that involves on-prem connections and prevent data and revenue loss through missing SLAs. All critical workflows running on on-prem connections are kept running 100% of the time because recipe can process jobs successfully even when one of the user’s on-prem servers goes down.
 
-To do so, the OPA will be connecting to an expanded set of Workato on-prem gateways. If you are using a firewall whitelist to explicitly allow OPA traffic to the Workato cloud, you may need to expand the [firewall whitelist](/security/ip-whitelists.html#on-premise-agent) accordingly.
+To do so, the OPA will be connecting to an expanded set of Workato on-prem gateways. If you are using a firewall whitelist to explicitly allow OPA traffic to the Workato cloud, you may need to expand the [firewall whitelist](/security/ip-whitelists.md#on-premise-agent) accordingly.
 
 Learn more about on-prem groups [here](/on-prem/groups.md).
 
