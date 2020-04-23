@@ -467,7 +467,8 @@ module.exports = [
           ],
           ['/on-prem/agents/proxy', 'Proxy server'],
           ['/on-prem/agents/logging', 'Logging'],
-          ['/on-prem/agents/extension', 'Extensions']
+          ['/on-prem/agents/extension', 'Extensions'],
+          ['/on-prem/agents/versions', 'Version notes']
         ]
       }
     ]
@@ -749,7 +750,12 @@ module.exports = [
       {
         title: 'Managing API Clients and Access Profiles',
         path: '/api-mgmt/api-client-mgmt',
-        children: [['/api-mgmt/access-tokens', 'Access Tokens']]
+        children: [
+          ['/api-mgmt/access-tokens', 'Access Tokens'],
+          ['/api-mgmt/auth-token', 'Auth Token'],
+          ['/api-mgmt/jwt-token', 'JWT Token'],
+          ['/api-mgmt/jwt-workato-claim', 'JWT Workato claim']
+        ]
       },
       ['/api-mgmt/api-prefix', 'API Prefix'],
       ['/api-mgmt/custom-domain', 'Custom Domain'],
