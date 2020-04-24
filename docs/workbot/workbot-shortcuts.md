@@ -21,14 +21,14 @@ Similar to the <b>[Post command](/workbot/workbot-commands.md)</b> trigger, comm
 Shortcuts can be triggered from the shortcuts menu or the search bar.
 
 Click on the shortcuts menu or search for your shortcut in the search bar at the top of your Slack UI.
-s
+
 ![Accessing shortcuts](~@img/workbot/workbot/shortcuts-example.jpg)
 *Accessing shortcuts from Slack*
 
 ## How message shortcuts work
 Message shortcuts can be triggered on any message in any channel, direct message, or multi-party message that your custom bot is a member of.
 
-Hover on a message, and click on the horizontal ellipsis menu to bring up a list of actions. Message shortcuts that you've created can be found at the bottom of the list.
+Hover on a message and click on the horizontal ellipsis menu to bring up a list of actions. Message shortcuts that you've created can be found at the bottom of the list.
 
 If you don't see your message shortcut, click on **More message shortcuts** from the same menu to view all message menus in your Slack team.
 
@@ -110,7 +110,7 @@ When shortcuts are triggered from Slack, the **Callback ID** is used to match th
 **Callback ID** is required to configure your shortcuts in Slack. More on this in a [later section](#creating-shortcuts-on-your-custom-bot-in-slack).
 
 ### Dialog for command input fields
-If you've defined any command input fields, a dialog is automatically launched to collect values for each of them from the user. Up to 5 command input fields can be defined for each shortcut trigger.
+If you've defined any command input fields, a dialog is automatically launched to collect values for each of them from the user. Up to 10 command input fields can be defined for each shortcut trigger.
 
 ![Adding command input fields](~@img/workbot/workbot-message-actions/message-actions-dialog.png)
 *Message action dialog in Slack, with 5 different fields*
@@ -153,7 +153,7 @@ You can choose from 3 different types of select menus. Each differs by the menu 
 
   When a channel is selected, the channel ID is returned, e.g. **CA83MDSK0**.
 
-  - **users** displays the list of all users (including bots) in your Slack workspace.
+  - **Users** displays the list of all users (including bots) in your Slack workspace.
 
     ![Users menu options](~@img/workbot/workbot-message-actions/users-select.gif)
     *Example of a users menu in a Slack dialog*
@@ -197,7 +197,7 @@ On the next page, choose **Global**.
 ![Choose Global](~@img/workbot/workbot/choose-global.png)
 *Click on **Global***
 
-In the shortcuts configuration, choose a descriptive name for your shortcut, a short description of its function, followed by the **Callback ID**.
+In the shortcuts configuration, choose a descriptive name for your shortcut, a short description of its function, followed by the [**Callback ID**](#callback-id).
 
 ![Shortcuts config](~@img/workbot/workbot/shortcuts-config.png)
 *Shortcuts config*
