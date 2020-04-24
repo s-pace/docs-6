@@ -12,7 +12,7 @@ The Workbot for Slack connector has 5 triggers:
 
 - [New command](#new-command-trigger-building-custom-commands)
 - [New event (real-time)](#new-event-trigger)
-- [New message action trigger](#new-message-action-trigger)
+- [New shortcut trigger](#new-shortcut-trigger)
 - [New shortcut trigger](#new-shortcut-action-trigger)
 - [New URL mention](#new-url-mention)
 - [New dynamic menu event](#new-dynamic-menu-event)
@@ -316,20 +316,18 @@ This trigger is best used with [custom bots](/workbot/workbot-custom-bots.md), a
 
 This trigger can also listen to [block action](https://api.slack.com/messaging/interactivity/enabling#understanding_payloads) and block kit modal [view submission](https://api.slack.com/block-kit/surfaces/modals#handling_submissions) events. These events get sent to the **Interactive Components** request URL, so if you've already enabled [interactive components in your custom bot](/workbot/workbot-custom-bots.md#enabling-interactive-components), then there's no further action required — you're all set.
 
-## New message action trigger
-This trigger allows you to perform message actions onto existing Slack messages in your Slack team.
+## New shortcut trigger
+The **New shortcut trigger** is a powerful way to kickstart your workflows. Launch a workflow from a global shortcut, or turn any Slack message into a task or a ticket using a message shortcut. This trigger works for both **Global** & **Message** shortcuts requires you to [create shortcuts in your custom bot](/workbot/workbot-shortcuts#creating-shortcuts-on-your-custom-bot-in-Slack).
 
 ![Message action gif](~@img/workbot/workbot-message-actions/message-actions-example.gif)
 
-When triggered, message actions launch a dialog to collect command input fields from the user. The original contents of the message (along with input obtained from the dialog) can be used to create tasks, tickets, and more. To start using message actions, check out our [message actions documentation](/workbot/workbot-message-action.md).
+When triggered, shortcuts launch a dialog to collect command input fields from the user. The original contents of the message (along with input obtained from the dialog) can be used to create tasks, tickets, and more. To start using shortcuts, check out our [shortcuts documentation](/workbot/workbot-shortcuts.md).
 
-This trigger allows you to build a custom command for Workbot in a Workato recipe. When you call this custom command in Slack to Workbot, the recipe will trigger and execute the actions you have defined. To find out how to create a simple command, check out [this guide](/workbot/workbot-commands.md).
-
-## New shortcuts trigger
+## New shortcut trigger
 This trigger allows you to invoke a command using a shortcut you can define in your custom bot.
 
 ![Shortcuts trigger](~@img/workbot/workbot/shortcuts-trigger.png)
-*New shortcuts trigger*
+*New shortcut trigger*
 
 ![Shortcuts example](~@img/workbot/workbot/shortcuts-example.jpg)
 *Shortcut example*
