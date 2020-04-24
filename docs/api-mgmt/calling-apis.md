@@ -16,7 +16,7 @@ If the Access Profile specifies the **Auth Token** method of authentication, the
 | Header          | Authentication method | cURL Example |
 | --------------- | --------------------- | ------------ |
 | `API-Token`     | Auth token            | `-H 'API-TOKEN: 24ea2bf52b42b7345b9'` |
-| `Authorization` | OAuth2.0 & JWT token  | `-H 'Authorization: Bearer 12cb1a7d5233'` |
+| `Authorization` | OAuth 2.0 & JWT token | `-H 'Authorization: Bearer 12cb1a7d5233'` |
 
 # Calling an API Endpoint from a Recipe
 

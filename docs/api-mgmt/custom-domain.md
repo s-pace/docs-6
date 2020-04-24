@@ -11,10 +11,6 @@ Route Workato API endpoints through your own domain. You can expose Workato API 
 
 **Custom domain URL:** `https://api.boltcompany.com/sales-api/get-invoice`
 
-::: warning
-The  `oauth2` is a reserved namespace. Your custom domain should not contain this keyword.
-:::
-
 ::: tip
 Custom domains in Workato are not case sensitive.
 :::
