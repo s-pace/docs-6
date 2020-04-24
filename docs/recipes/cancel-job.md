@@ -6,7 +6,7 @@ date: 2020-04-03 21:01:00 Z
 # Cancel job
 Workato lets users cancel a running job. Running (or pending) status means the job is currently executing the actions defined in the recipe.
 
-Oftentimes developers and operators may need to cancel a running job when:
+Oftentimes developers and operators may need to cancel a job in the processing status when:
 - there’s a bug in the recipe
 - a data issue
 - wrong application sandbox is used
