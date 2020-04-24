@@ -68,6 +68,12 @@ Supported blocks are displayed in the table below.
     <td>Displays text, alongside a date picker.<br><br>On date selection, a date picker invokes another recipe and passes on the selected date via a date parameter. You can customize the name of this date parameter.<br><br>You can optionally pass additional command input values together with the date parameter.</td>
   </tr>
   <tr>
+    <td>Repeat block group</td>
+    <td>
+      This a special block type that's available only on the Workato bot platform. The repeat block group allows you to define a set of blocks to use as a pattern. By iterating through an existing list and mapping the list fields to the fields of the blocks in the pattern, you can dynamically generate repeat blocks.
+    </td>
+  </tr>
+  <tr>
     <td>Divider</td>
     <td>A content divider, like an &lt;hr&gt;, used to split up different blocks inside of a message.</td>
   </tr>
