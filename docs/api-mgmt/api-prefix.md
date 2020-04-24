@@ -10,7 +10,7 @@ API prefixes are base paths that are unique to each Workato account. You can use
 Having standardized collection names across your company simplifies the [recipe export process](/recipe-development-lifecycle.md). For example, your team can easily export recipes from the development account (`/acme-dev/sales-api/`) to the production account `/acme/sales-api/` without worrying about conflicting collection paths. API Prefix lets your work seemlessly between your environments.
 
 ::: warning
-The  `oauth2` is a reserved namespace. The API prefix `/oauth2/sales-api` is not allowed.
+`oauth2` is a reserved namespace. The path prefix `oauth2/*` is not allowed.
 :::
 
 ## Understanding the Endpoint

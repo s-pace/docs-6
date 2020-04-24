@@ -62,7 +62,7 @@ Navigate to this page by **selecting your desired API collection** > click on th
 You can edit the URL path for this collection. Workato recommends using a meaningful name and standardizing the name across development teams. Having standardized collection names across your company will simplify the [recipe export process](/recipe-development-lifecycle.md) during versioning changes and updates between development, testing, and production-ready endpoint.
 
 ::: warning
-The  `oauth2` is a reserved namespace. The collection name `/oauth2` is not allowed.
+`oauth2` is a reserved namespace. A collection path that begins with `oauth2/*` is not allowed.
 :::
 
 :::tip
