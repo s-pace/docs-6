@@ -146,6 +146,10 @@ module.exports = [
         ]
       },
       {
+        title: 'Cancel job',
+        path: '/recipes/cancel-job'
+      },
+      {
         title: 'RecipeOps',
         path: '/recipe-ops',
         children: [
