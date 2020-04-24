@@ -6,16 +6,16 @@ date: 2020-04-03 21:01:00 Z
 # Cancel job
 Workato lets users cancel a running job. Running (or pending) status means the job is currently executing the actions defined in the recipe.
 
-During the recipe development, developers frequently test their. Oftentimes developers and operators may need to cancel a running job when -
+Oftentimes developers and operators may need to cancel a job in the processing status when:
 - there’s a bug in the recipe
 - a data issue
 - wrong application sandbox is used
 - the recipe may take a few minutes to an hour or more to complete
 
-Recipes that execute bulk actions take minutes to hours to complete depending on the size of the data. Some examples are -
+Recipes that execute bulk actions take minutes to hours to complete depending on the size of the data. Some examples are:
 - Create/Update/Upsert records in bulk from CSV file in the `Salesforce` connector
 - Add/Create in bulk in the `NetSuite` connector
-- Bulk import leads from file in the `Marketo` connector or the
+- Bulk import leads from file in the `Marketo` connector
 - `Wait` action in the `Scheduler` connector
 
 You can cancel a job from the job details page. Simply click on the `Cancel job` button.
