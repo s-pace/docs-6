@@ -13,7 +13,6 @@ The Workbot for Slack connector has 5 triggers:
 - [New command](#new-command-trigger-building-custom-commands)
 - [New event (real-time)](#new-event-trigger)
 - [New shortcut trigger](#new-shortcut-trigger)
-- [New shortcut trigger](#new-shortcut-action-trigger)
 - [New URL mention](#new-url-mention)
 - [New dynamic menu event](#new-dynamic-menu-event)
 
@@ -317,7 +316,7 @@ This trigger is best used with [custom bots](/workbot/workbot-custom-bots.md), a
 This trigger can also listen to [block action](https://api.slack.com/messaging/interactivity/enabling#understanding_payloads) and block kit modal [view submission](https://api.slack.com/block-kit/surfaces/modals#handling_submissions) events. These events get sent to the **Interactive Components** request URL, so if you've already enabled [interactive components in your custom bot](/workbot/workbot-custom-bots.md#enabling-interactive-components), then there's no further action required — you're all set.
 
 ## New shortcut trigger
-The **New shortcut trigger** is a powerful way to kickstart your workflows. Launch a workflow from a global shortcut, or turn any Slack message into a task or a ticket using a message shortcut. This trigger works for both **Global** & **Message** shortcuts requires you to [create shortcuts in your custom bot](/workbot/workbot-shortcuts#creating-shortcuts-on-your-custom-bot-in-Slack).
+The **New shortcut trigger** is a powerful way to kickstart your workflows. Launch a workflow from a global shortcut, or turn any Slack message into a task or a ticket using a message shortcut. This trigger works for both **Global** & **Message** shortcuts requires you to [create shortcuts in your custom bot](/workbot/workbot-shortcuts#creating-shortcuts-on-your-custom-bot-in-slack).
 
 ![Message action gif](~@img/workbot/workbot-message-actions/message-actions-example.gif)
 
@@ -326,13 +325,13 @@ When triggered, shortcuts launch a dialog to collect command input fields from t
 ## New shortcut trigger
 This trigger allows you to invoke a command using a shortcut you can define in your custom bot.
 
-![Shortcuts trigger](~@img/workbot/workbot/shortcuts-trigger.png)
+![Shortcuts trigger](~@img/workbot/workbot/shortcut-trigger.png)
 *New shortcut trigger*
 
 ![Shortcuts example](~@img/workbot/workbot/shortcuts-example.jpg)
 *Shortcut example*
 
-If you define command input values, shortcuts launch a modal to collect them from the user. If you'd rather customize your own modal view, do not define any define command input values but instead open your own modal using the [Open/update or push modal view](/workbot/modals.md#open-update-or-push-modal-view-action) action.
+If you define command input values, shortcuts launch a dialog to collect them from the user.
 
 To start using shortcuts, check out our [Shortcuts documentation](/workbot/workbot-shortcuts.md).
 

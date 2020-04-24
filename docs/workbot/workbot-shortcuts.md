@@ -4,9 +4,9 @@ date: 2020-04-14 10:40:00 Z
 ---
 
 # New shortcut trigger (real-time)
-The **New shortcut trigger** is a powerful way to kickstart your workflows. Launch a workflow from a global shortcut, or turn any Slack message into a task or a ticket using a message shortcut. This trigger works for both **Global** & **Message** shortcuts. To use this trigger, you'll need to [create shortcuts in your custom bot](#creating-shortcuts-on-your-custom-bot-in-Slack).
+The **New shortcut trigger** is a powerful way to kickstart your workflows. Launch a workflow from a global shortcut, or turn any Slack message into a task or a ticket using a message shortcut. This trigger works for both **Global** & **Message** shortcuts. To use this trigger, you'll need to [create shortcuts in your custom bot](#creating-shortcuts-on-your-custom-bot-in-slack).
 
-![Shortcuts trigger](~@img/workbot/workbot/shortcuts-trigger.png)
+![Shortcuts trigger](~@img/workbot/workbot/shortcut-trigger.png)
 *New shortcut trigger*
 
 ![Shortcuts example](~@img/workbot/workbot/shortcuts-example.jpg)
@@ -17,14 +17,12 @@ The **New shortcut trigger** is a powerful way to kickstart your workflows. Laun
 
 Similar to the <b>[Post command](/workbot/workbot-commands.md)</b> trigger, command input fields can be defined if you need user input for follow-up actions. If command input fields are specified, shortcuts will launch a dialog to get user input.
 
-If you'd rather use your own modal view, do not define any define command input fields but instead open a modal using the [Open/update or push modal view](/workbot/modals.md#open-update-or-push-modal-view-action) action.
-
 ## How global shortcuts work
 Shortcuts can be triggered from the shortcuts menu or the search bar.
 
 Click on the shortcuts menu or search for your shortcut in the search bar at the top of your Slack UI.
-
-![Accessing shortcuts](~@img/workbot/workbot/accessing-shortcuts.png)
+s
+![Accessing shortcuts](~@img/workbot/workbot/shortcuts-example.jpg)
 *Accessing shortcuts from Slack*
 
 ## How message shortcuts work
@@ -52,7 +50,7 @@ If you already have a custom bot, proceed on to learn how to use shortcuts with 
 ## Configuring a shortcut trigger
 In this section, we will go through how to configure a shortcut trigger.
 
-![Shortcuts trigger](~@img/workbot/workbot/shortcuts-trigger.png)
+![Shortcuts trigger](~@img/workbot/workbot/shortcut-trigger.png)
 *Shortcuts trigger fields*
 
 The table below shows the input schema for the shortcuts trigger.
@@ -112,7 +110,7 @@ When shortcuts are triggered from Slack, the **Callback ID** is used to match th
 **Callback ID** is required to configure your shortcuts in Slack. More on this in a [later section](#creating-shortcuts-on-your-custom-bot-in-slack).
 
 ### Dialog for command input fields
-If you've defined any command input fields, a dialog is automatically launched to collect values for each of them from the user. Up to 5 command input fields can be defined for each shortcuts trigger.
+If you've defined any command input fields, a dialog is automatically launched to collect values for each of them from the user. Up to 5 command input fields can be defined for each shortcut trigger.
 
 ![Adding command input fields](~@img/workbot/workbot-message-actions/message-actions-dialog.png)
 *Message action dialog in Slack, with 5 different fields*
@@ -147,7 +145,7 @@ Under **Dialog control type**, choose **select** to display a select menu with m
 
 ![Select control type](~@img/workbot/workbot-message-actions/select-control-type.png)
 
-You can choose from 3 different types of select menus. Each differ by the menu options displayed:
+You can choose from 3 different types of select menus. Each differs by the menu options displayed:
   - **Channels** displays the list of all public channels in your Slack workspace.
 
   ![Channel menu options](~@img/workbot/workbot-message-actions/channels-select.gif)
@@ -171,7 +169,7 @@ You can choose from 3 different types of select menus. Each differ by the menu o
     *Example of a custom menu in a Slack dialog*
 
 #### Copy original text into dialog field
-You can also choose to copy the original message into a defined command input field, so that it shows up in the dialog. You can do so by selecting a command input field from the picklist in the **Copy original text into dialog** field.
+You can also choose to copy the original message into a defined command input field so that it shows up in the dialog. You can do so by selecting a command input field from the picklist in the **Copy original text into dialog** field.
 
 ![Copy original field config](~@img/workbot/workbot-message-actions/copy-original-field-example.png)
 *Copying original message into the 'description' command input field*
@@ -194,7 +192,7 @@ Under **Interactive components**, click on **Create New Shortcut**.
 ![Create new shortcut](~@img/workbot/workbot/create-new-shortcut.png)
 *Click on **Create New Shortcut***
 
-In the next page, choose **Global**.
+On the next page, choose **Global**.
 
 ![Choose Global](~@img/workbot/workbot/choose-global.png)
 *Click on **Global***
@@ -206,7 +204,7 @@ In the shortcuts configuration, choose a descriptive name for your shortcut, a s
 
 As mentioned above, the **Callback ID** used here must be identical to the **Callback ID** in the shortcuts trigger.
 
-![Callback ID](~@img/workbot/workbot/callback-id-shortcuts.png)
+![Callback ID](~@img/workbot/workbot/shortcuts-callback-id.png)
 *Callback ID generated from shortcut name*
 
 Click **Create** to finish setting up the shortcut on Slack. You can test it out by using the shortcut from the shortcut menu in the Slack UI.
