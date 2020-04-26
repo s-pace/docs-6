@@ -40,26 +40,62 @@ You can optionally provide secondary attachments, which will display *below* any
 # Supported blocks
 Supported blocks are displayed in the table below.
 
-| Block type | Supported actions | Description |
-|----------------------------|-----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Section with text | Post message, Post command reply, Open/update or push modal | Displays text. |
-| Section with image | Post message, Post command reply, Open/update or push modal | Displays text alongside an image thumbnail. |
-| Section with button | Post message, Post command reply, Open/update or push modal | Displays text alongside a button. On button submission, a button invokes another recipe and passes on any command input values it has. |
-| Section with fields | Post message, Post command reply, Open/update or push modal | Displays text, along with an array of title-value fields, rendered in 2 columns beneath the section text. Maximum number of fields is 10. Maximum length for the text in each field is 2000 characters. |
-| Section with select menu | Post message, Post command reply, Open/update or push modal | Displays text, alongside a select menu. Supports Slack's built-in dynamic menus (Select user, Select conversation, Select channel). For these menus, the ID is passed (e.g. user ID) when an option is chosen.   You can also define your own custom menu, or a dynamic menu (which allows a user to search/filter results). |
-| Section with overflow menu | Post message, Post command reply, Open/update or push modal | Displays text, alongside an overflow menu. Supports static or dynamically generated overflow menu options. On submission, an overflow menu option invokes another recipe and passes on any command input values it has. |
-| Section with datepicker | Post message, Post command reply, Open/update or push modal | Displays text, alongside a date picker. On date selection, a date picker invokes another recipe and passes on the selected date via a date parameter. You can customize the name of this date parameter. You can optionally pass additional command input values together with the date parameter. |
-| Repeat block group | Post message, Post command reply, Open/update or push modal| This a special block type that's available only on the Workato bot platform. The repeat block group allows you to define a set of blocks to use as a pattern. By iterating through an existing list and mapping the list fields to the fields of the blocks in the pattern, you can dynamically generate repeat blocks. |
-| Divider | Post message, Post command reply, Open/update or push modal | A content divider, like a `<hr>`, used to split up different blocks inside of a message. |
-| Image | Post message, Post command reply, Open/update or push modal | Displays an image using a provided public URL. |
-| File | Post message, Post command reply | Posts a file based by specifying the Slack file ID. |
-| Context | Post message, Post command reply, Open/update or push modal | Displays message context, which can include both images and texts. All images and texts will be joined together into a single string, in the order they appear in. |
-| Dynamic blocks | Post message, Post command reply, Open/update or push modal | Dynamically generate a pattern of blocks by iterating through a list. First, obtain a list (e.g. List of Salesforce opportunities) and map the datapills to the pattern of blocks. Workato will repeat the pattern of blocks for each item in the list.                                                                      |
-| Singleline input | Open/update or push modal | Displays a text input field to collect info from user. Input value is only passed on view submission. |
-| Multiline input | Open/update or push modal | Displays a text area input field to collect info from user. Input value is only passed on view submission. |
-| Select menu input | Open/update or push modal | Displays a select menu. Menu option value is only passed on view submission. |
-| Datepicker input |  Open/update or push modal | Displays a datepicker. Date value is only passed on view submission. |
-| Checkboxes input | Open/update or push modal | Displays checkboxes. Checkbox values are passed as an array on view submission. |
+<table>
+  <tr>
+    <th>Blocks</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Section with text</td>
+    <td>Displays text.</td>
+  </tr>
+  <tr>
+    <td>Section with image</td>
+    <td>Displays text alongside an image thumbnail.</td>
+  </tr>
+  <tr>
+    <td>Section with button</td>
+    <td>Displays text alongside a button. <br><br>On button submission, a button invokes another recipe and passes on any command input values it has.</td>
+  </tr>
+  <tr>
+    <td>Section with fields</td>
+    <td>Displays text, along with an array of title-value fields, rendered in 2 columns beneath the section text. Maximum number of fields is 10. Maximum length for the text in each field is 2000 characters.</td>
+  </tr>
+  <tr>
+    <td>Section with select menu</td>
+    <td>Displays text, alongside a select menu. Supports Slack's built-in dynamic menus such as Select user, Select conversation, Select channel. You can also define your own custom dynamic menu.<br><br>On submission, a menu option invokes another recipe and passes on any command input values it has.</td>
+  </tr>
+  <tr>
+    <td>Section with overflow menu</td>
+    <td>Displays text, alongside an overflow menu. Supports static or dynamically generated overflow menu options.<br><br>On submission, an overflow menu option invokes another recipe and passes on any command input values it has.</td>
+  </tr>
+  <tr>
+    <td>Section with date picker</td>
+    <td>Displays text, alongside a date picker.<br><br>On date selection, a date picker invokes another recipe and passes on the selected date via a date parameter. You can customize the name of this date parameter.<br><br>You can optionally pass additional command input values together with the date parameter.</td>
+  </tr>
+  <tr>
+    <td>Repeat block group</td>
+    <td>
+      This a special block type that's available only on the Workato bot platform. The repeat block group allows you to define a set of blocks to use as a pattern. By iterating through an existing list and mapping the list fields to the fields of the blocks in the pattern, you can dynamically generate repeat blocks.
+    </td>
+  </tr>
+  <tr>
+    <td>Divider</td>
+    <td>A content divider, like an &lt;hr&gt;, used to split up different blocks inside of a message.</td>
+  </tr>
+  <tr>
+    <td>Image</td>
+    <td>Displays an image using a provided public URL.</td>
+  </tr>
+  <tr>
+    <td>Actions</td>
+    <td>A block that can hold multiple interactive elements like buttons, overflow menus, select menus, and date pickers.</td>
+  </tr>
+  <tr>
+    <td>Context</td>
+    <td>Displays message context, which can include both images and texts. All images and texts will be joined together into a single string, in the order they appear in.</td>
+  </tr>
+</table>
 
 # Limitations
 - Include up to 100 blocks in each message.
