@@ -612,7 +612,7 @@ module.exports = [
         title: 'Workbot triggers',
         path: '/workbot/workbot-triggers',
         children: [
-          ['/workbot/workbot-message-action', 'New message action'],
+          ['/workbot/workbot-shortcuts', 'New shortcut trigger'],
           [
             '/workbot/workbot-triggers#new-command-trigger-building-custom-commands',
             'New command'
