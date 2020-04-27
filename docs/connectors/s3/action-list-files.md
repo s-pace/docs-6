@@ -6,7 +6,7 @@ date: 2018-12-13 23:00:00 Z
 # Amazon S3 action - List files in bucket
 This action lists all files in a bucket in Amazon S3.
 
-![Amazon S3 - List file action](~@img/connectors/amazon-s3/list-file-action.png)
+![Amazon S3 - List file action](~@img/connectors/amazon-s3/list-files-action.png)
 *Amazon S3 - List file action*
 
 ## Input fields
