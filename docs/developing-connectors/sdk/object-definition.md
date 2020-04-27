@@ -208,6 +208,62 @@ Up until now, our sample code snippets have largely only included the basic para
             <td>An optional boolean key. When true, a special marker is introduced to indicate to the user that this field is custom. Normally used when dynamically generating object definitions which may contain custom fields.
             </td>
         </tr>
+        <tr>
+          <td>extends_schema</td>
+          <td>
+            Defines whether this specific input field can influence other input or output fields. Setting this field to <code>extends_schema: true</code> makes this input field act as if it were a <a href="/developing-connectors/sdk/config-fields.html">configuration field.</a>
+            <br>
+            <br>
+            Learn more about how to use the extends_schema field <a href="/developing-connectors/sdk/object-definition.html#using-fields-with-extends-schema">here</a>
+          </td>
+        </tr>
+        <tr>
+          <td>list_mode</td>
+          <td>
+            Used when working with arrays. Workato defaults to dynamic lists but this parameter allows you to set configure this input field to a static array input field. Defaults to <code>dynamic</code>
+            Used by setting <code>list_mode: "static"</code> or <code>list_mode: "dynamic"</code>
+          </td>
+        </tr>
+        <tr>
+          <td>list_mode_toggle</td>
+          <td>
+            Used when working with arrays. Workato allows users to toggle between static and dynamic lists when working with arrays. Defaults to <code>true</code>.
+            Set <code>list_mode_toggle: false</code> to disallow users to toggle list modes.
+          </td>
+        </tr>
+        <tr>
+          <td>item_label</td>
+          <td>
+            Only used with control_types <code>schema_designer</code> and <code>key_value</code>.
+            This allows you to configure the item name stated in the modal popup. Setting <code>item_label: "Item Label"</code> will result in the following:
+            <img src="~@img/sdk/item_label.png" alt="item_label">
+          </td>
+        </tr>
+        <tr>
+          <td>add_field_label</td>
+          <td>
+            Only used with control_types <code>schema_designer</code> and <code>key_value</code>.
+            This allows you to configure the label of the add button. Setting <code>add_field_label: "Custom Add Label"</code> will result in the following:
+            <img src="~@img/sdk/add_field_label.png" alt="add_field_label">
+          </td>
+        </tr>
+        <tr>
+          <td>empty_schema_message</td>
+          <td>
+            Only used with control_types <code>schema_designer</code> and <code>key_value</code>.
+            This allows you to configure the message when the input field is empty. Setting <code>empty_schema_message: 'Custom empty schema message that allows to <button type="button" data-action="addField">add field</button> and <button type="button" data-action="generateSchema">generate schema</button>'</code> will result in the following:
+            <img src="~@img/sdk/empty_schema_message.png" alt="empty_schema_message">
+          </td>
+        </tr>
+        <tr>
+          <td>sample_data_type</td>
+          <td>
+            Only used with control_types <code>schema_designer</code>
+            This allows you to configure the type of data the schema_designer input field will accept. Setting <code>sample_data_type: 'csv'</code> will result in the following:
+            <img src="~@img/sdk/sample_data_type.png" alt="sample_data_type">
+            Other possible inputs are <code>json_input</code> and <code>xml</code>. The schema_designer defaults to <code>json_input</code>.
+          </td>
+        </tr>
     </tbody>
 </table>
 
@@ -274,7 +330,7 @@ Control types are a way for you to declare how input fields are displayed to use
     <tr>
       <td>checkbox</td>
       <td>
-        Simple Yes/No select interface. This control type adds an implicit toggle to text mode (for dynamic mapping and formula mode option).<br>
+        Simple Yes/No select interface. It is advisable to add a <a href='/developing-connectors/sdk/toggle-fields.html'>toggle field</a> for dynamic mapping and formula mode option.<br>
         <img src="~@img/sdk/checkbox.png" alt="checkbox control type">
       </td>
     </tr>
@@ -320,11 +376,52 @@ Control types are a way for you to declare how input fields are displayed to use
         <img src="~@img/sdk/subdomain.png" alt="subdomain control type">
       </td>
     </tr>
-    <tr>
+    <!-- <tr>
       <td>static-list</td>
       <td>
         Control type for arrays where the size of the array is statically determined by the recipe designer. Remember to define <code>item_label</code>, <code>add_item_label</code>, <code>empty_list_title</code> and <code>empty_list_text</code>.<br>
         <img src="~@img/sdk/static-list.png" alt="static-list control type">
+      </td>
+    </tr> -->
+    <tr>
+      <td>schema_designer</td>
+      <td>
+        Control type that allows you to collect schema information from users. This is useful when you need users to give your input during recipe design time to create input or output fields. This requires <code>extends_schema: true</code> to take effect.
+        <pre><code style="display: block; white-space: pre-wrap;">{
+  name: "schema",
+  extends_schema: true,
+  schema_neutral: false,
+  control_type: 'schema-designer',
+  label: 'Schema designer label',
+  hint: 'Hint for schema designer field',
+  item_label: 'button',
+  add_field_label: 'Custom Add Label',
+  empty_schema_message: 'Custom empty schema message that allows to &lt;button type="button" data-action="addField"&gt;add field&lt;/button&gt; and &lt;button type="button" data-action="generateSchema"&gt;generate schema&lt;/button&gt;',
+  sample_data_type: 'csv' # json_input / xml     
+},</code></pre>
+        <img src="~@img/sdk/schema_designer.png" alt="schema_designer">
+      </td>
+    </tr>    
+    <tr>
+      <td>key_value</td>
+      <td>
+        Control type that allows you to collect key and value pairs from users. This is useful when you need users to give your input during recipe design time for URL query parameters. Must be accompanied with `properties:` defined and two inputs given.
+        <pre><code style="display: block; white-space: pre-wrap;">{
+  name: "key_value",
+  control_type: "key_value",
+  label: "key_value",
+  empty_list_title: "Add query parameters",
+  empty_list_text: "Description for empty list",
+  item_label: "Query parameter",
+  type: "array",
+  of: "object",
+  properties: [
+    { name: "key"},
+    { name: "value"}
+  ]
+},
+        </code></pre>
+        <img src="~@img/sdk/key_value.png" alt="key_value">
       </td>
     </tr>
   </tbody>
@@ -477,6 +574,40 @@ object_definitions: {
   }
 }
 ```
+
+### Using fields with extends_schema
+Sometimes, what input fields to show in an action depend on the answer to an input field in the same action. Rather than using config fields, extends_schema is an advanced way of introducing even more dynamic behaviour into your action.
+
+#### Sample code snippet
+```ruby
+object_definitions:
+  schema_input: {
+    fields: lambda do |connection, config_fields|
+      input_schema = parse_json(config_fields.dig('schema') || '[]')
+      [
+        {
+          name: "schema",
+          extends_schema: true,
+          schema_neutral: false,
+          control_type: 'schema-designer',
+          label: 'Schema designer label',
+          hint: 'Hint for schema designer field',
+          item_label: 'button',
+          add_field_label: 'Custom Add Label',
+          empty_schema_message: 'Custom empty schema message that allows to <button type="button" data-action="addField">add field</button> and <button type="button" data-action="generateSchema">generate schema</button>',
+          sample_data_type: 'csv' # json_input / xml     
+        },
+        if input_schema.present?
+          { name: 'data', type: 'object', properties: input_schema }
+        end
+      ].compact
+    end
+  }
+```
+
+In the code sample above, we use an input field with the control_type `schema_designer`. When `extends_schema` is set to `true`, any inputs by an end user immediately cause the `object_definitions` block to re-evaluate itself with the inputs given being passed as `config_fields` again. In this example, we see that the input `schema` is referenced at the beginning of the object_definition block. When users give inputs for the `schema` field, it can be referenced as a `config_field` which use to build the `data` input field.
+
+
 
 ### Arrays of primitive data types
 Arrays in Workato input and output schema currently only work with objects. In cases where you need to collect an array of primitive datatypes such as strings or integers, consider the code below. In this example, we hope to send an array of strings to a target API in the format `["column1","column2","column3"]`. This can be done by declaring an array of objects with the declaration for the `column names` input field wrapped inside the object layer.

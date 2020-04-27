@@ -146,6 +146,10 @@ module.exports = [
         ]
       },
       {
+        title: 'Cancel job',
+        path: '/recipes/cancel-job'
+      },
+      {
         title: 'RecipeOps',
         path: '/recipe-ops',
         children: [
@@ -467,7 +471,8 @@ module.exports = [
           ],
           ['/on-prem/agents/proxy', 'Proxy server'],
           ['/on-prem/agents/logging', 'Logging'],
-          ['/on-prem/agents/extension', 'Extensions']
+          ['/on-prem/agents/extension', 'Extensions'],
+          ['/on-prem/agents/versions', 'Version notes']
         ]
       }
     ]
@@ -602,11 +607,12 @@ module.exports = [
       ['/workbot/workbot-for-slack-setup', 'Workbot for Slack setup'],
       ['/workbot/using-workbot-for-slack', 'Using Workbot for Slack'],
       ['/workbot/block-kit', 'Block kit'],
+      ['/workbot/modals', 'Block kit in modals'],
       {
         title: 'Workbot triggers',
         path: '/workbot/workbot-triggers',
         children: [
-          ['/workbot/workbot-message-action', 'New message action'],
+          ['/workbot/workbot-shortcuts', 'New shortcut trigger'],
           [
             '/workbot/workbot-triggers#new-command-trigger-building-custom-commands',
             'New command'
@@ -642,7 +648,7 @@ module.exports = [
             '/workbot/workbot-actions#return-menu-options',
             'Return menu options'
           ],
-          ['/workbot/workbot-actions#upload-file', 'Upload file']
+          ['/workbot/workbot-actions#open-update-or-push-modal-view-action', 'Open/update or push modal view'],
         ]
       },
       {
@@ -749,7 +755,12 @@ module.exports = [
       {
         title: 'Managing API Clients and Access Profiles',
         path: '/api-mgmt/api-client-mgmt',
-        children: [['/api-mgmt/access-tokens', 'Access Tokens']]
+        children: [
+          ['/api-mgmt/access-tokens', 'Access Tokens'],
+          ['/api-mgmt/auth-token', 'Auth Token'],
+          ['/api-mgmt/jwt-token', 'JWT Token'],
+          ['/api-mgmt/jwt-workato-claim', 'JWT Workato claim']
+        ]
       },
       ['/api-mgmt/api-prefix', 'API Prefix'],
       ['/api-mgmt/custom-domain', 'Custom Domain'],

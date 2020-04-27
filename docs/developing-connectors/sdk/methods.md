@@ -133,6 +133,13 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
        </td>
      </tr>
      <tr>
+       <td>delete_at</td>
+       <td>
+         Delete elements in an array<br>
+         <a href="https://apidock.com/ruby/Array/delete_at">More details here.</a>
+       </td>
+     </tr>
+     <tr>
        <td>dig</td>
        <td>Retrieves the value object corresponding to the index passed in <br>
        The dig method is often used to strip away layers in nested arrays/hashes. For example, we use the dig method often when dealing with XML data formats. <br>
@@ -349,6 +356,13 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
       </td>
     </tr>
     <tr>
+      <td>insert</td>
+      <td>
+        Insert elements into an array<br>
+        <a href="https://apidock.com/ruby/v2_5_5/Array/insert">More details here.</a>
+      </td>
+    </tr>
+    <tr>
       <td>in_time_zone</td>
       <td>
         Converts the time to given time zone<br>
@@ -374,7 +388,7 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
     </tr>
     <tr>
       <td>join</td>
-      <td>Returns the last item in a list. Can also be used to return the last n items in a list.
+      <td>Join array elements into a string
       <a href="https://apidock.com/ruby/Array/join">More details here.</a></td>
     </tr>
     <tr>
@@ -385,7 +399,7 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
     </tr>
     <tr>
       <td>last</td>
-      <td>Join array elements into a string
+      <td>Returns the last item in a list. Can also be used to return the last n items in a list.
       <a href="https://apidock.com/ruby/Array/last">More details here.</a></td>
     </tr>
     <tr>
