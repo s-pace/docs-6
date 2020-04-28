@@ -203,7 +203,7 @@ In the case below, we used the acquire block to send a `POST` HTTP call with bas
               refresh_token: response["refresh_token"],
             },
             nil,
-            { instance_id: nil }
+            { instance_id: nil } # Optional. Will be merged into connection hash
           ]
         end,
 
@@ -355,8 +355,8 @@ In the below example, the Namely API asks for the `refresh_token` to be appended
             access_token: response["access_token"],
             refresh_token: response["refresh_token"]
           },
-          nil,
-          nil
+          nil, # Optional. This is for your Owner ID if needed
+          { instance_id: nil }  # Optional. Will be merged into connection hash
         ]
       end,
 
@@ -373,11 +373,11 @@ In the below example, the Namely API asks for the `refresh_token` to be appended
                       ).
                       request_format_www_form_urlencoded
         [
-          {
+          { # This hash is for your tokens
             access_token: response["access_token"],
             refresh_token: response["refresh_token"]
           },
-          { instance_id: nil }
+          { instance_id: nil } # Optional. Will be merged into connection hash
         ]   
       end,
 
@@ -408,12 +408,22 @@ In the below example, the Namely API asks for the `refresh_token` to be appended
 }
 ```
 
-
 ### Output of `refresh` block
 Take note that an array of hashes is expected when using the `refresh` block for OAuth 2.0 authentication methods. When refreshing an OAuth 2.0 connection, the `refresh` block must return an array with the following values in sequence. This works in exactly the same way as the output of the `acquire` block *except without `Owner ID`*
 
 - Tokens
 - Other values
+
+::: tip
+Before this, users were able to give a single hash as the output of the `refresh` block like the sample below.
+```
+{
+  access_token: response["access_token"],
+  refresh_token: response["refresh_token"]
+}
+```
+This is still supported but not recommended.
+:::
 
 ### Using the `refresh_on` block
 This is an optional array of signals that is used to identify a need to re-acquire credentials . When an erroneous response is received (400, 401, 500...), the SDK framework checks it against this list of signals.
