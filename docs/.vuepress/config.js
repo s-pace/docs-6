@@ -33,6 +33,10 @@ module.exports = {
     require.resolve('./sidebar')
   ],
   themeConfig: {
+    algolia: {
+      apiKey: 'e9470947bfbf0d1cdac4bcfd3b2d9cc9',
+      indexName: 'workato'
+    },
     sidebar: require('./sidebar'),
     // Too long delay before scrolling to top and slow scrolling on pages with a lot of content
     // See issue https://github.com/workato/docs/issues/984
